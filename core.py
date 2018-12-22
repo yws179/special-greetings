@@ -24,9 +24,9 @@ def receive_msg(msg):
         user_name = msg['User']['UserName']
         nick_name = msg['User']['NickName']
         head_img = itchat.get_head_img(user_name)
-        card = factory.create_card(nick_name, head_img, 'christmas.jpg')
-        card.save('./temp.jpg')
-        itchat.send_image('./temp.jpg', toUserName=user_name)
+        card = factory.create_card(nick_name, head_img, 'christmas.png')
+        card.save('./temp.png')
+        itchat.send_image('./temp.png', toUserName=user_name)
     logger.debug(msg)
 
 

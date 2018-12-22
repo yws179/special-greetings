@@ -9,10 +9,10 @@ import tempfile
 
 from config import TMP_DIR, FONT_DIR
 
-HEAD_IMG_WIDTH = 100
-HEAD_IMG_HEIGHT = 100
+HEAD_IMG_WIDTH = 180
+HEAD_IMG_HEIGHT = 180
 
-OFFSET_HEIGHT = 20
+OFFSET_HEIGHT = 150
 
 GREETING_TXT = u'Jingle bells, Jingle bells Jingle all the way.\n\n'\
                u'铃儿响叮当，驯鹿在欢跑；歌声传四方，圣诞节来到。\n\n'\
@@ -33,8 +33,8 @@ def create_card(nick_name, head_img, temp_name):
     file.write(head_img)
     card = render_img(Image.open(file), Image.open(TMP_DIR + temp_name))
     draw = ImageDraw.Draw(card)
-    font = ImageFont.truetype(FONT_DIR + 'christmas.ttf', 20)
-    draw.text((10, 320), GREETING_TXT.replace('{nick_name}', nick_name), fill=(255, 255, 255), font=font)
+    font = ImageFont.truetype(FONT_DIR + 'christmas.ttf', 30)
+    draw.text((50, 500), GREETING_TXT.replace('{nick_name}', nick_name), fill=(255, 255, 255), font=font)
     file.close()
     return card
 
