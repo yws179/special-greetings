@@ -9,15 +9,16 @@ import tempfile
 
 from config import TMP_DIR, FONT_DIR
 
-HEAD_IMG_WIDTH = 50
-HEAD_IMG_HEIGHT = 50
+HEAD_IMG_WIDTH = 100
+HEAD_IMG_HEIGHT = 100
 
 OFFSET_HEIGHT = 20
 
-GREETING_TXT = u'Jingle bells, Jingle bells Jingle all the way.\n'\
-               u'铃儿响叮当，驯鹿在欢跑；歌声传四方，圣诞节来到。\n'\
-               u'雪花飘飘洒，带来祥瑞兆；人寿年又丰，人人都欢笑。\n'\
-               u'圣诞节到了,祝 {nick_name} 身体健康，事业成功，家庭美满，快乐围绕！'
+GREETING_TXT = u'Jingle bells, Jingle bells Jingle all the way.\n\n'\
+               u'铃儿响叮当，驯鹿在欢跑；歌声传四方，圣诞节来到。\n\n'\
+               u'雪花飘飘洒，带来祥瑞兆；人寿年又丰，人人都欢笑。\n\n'\
+               u'圣诞节到了,\n'\
+               u'祝 {nick_name} 身体健康，事业成功，家庭美满，快乐围绕！'
 
 
 def create_card(nick_name, head_img, temp_name):
@@ -30,12 +31,12 @@ def create_card(nick_name, head_img, temp_name):
     """
     file = tempfile.TemporaryFile()
     file.write(head_img)
-    temp = render_img(Image.open(file), Image.open(TMP_DIR + temp_name))
-    draw = ImageDraw.Draw(temp)
+    card = render_img(Image.open(file), Image.open(TMP_DIR + temp_name))
+    draw = ImageDraw.Draw(card)
     font = ImageFont.truetype(FONT_DIR + 'christmas.ttf', 20)
-    draw.text((10, 10), GREETING_TXT.replace('{nick_name}', nick_name), fill=(255, 255, 255), font=font)
-    temp.show()
+    draw.text((10, 320), GREETING_TXT.replace('{nick_name}', nick_name), fill=(255, 255, 255), font=font)
     file.close()
+    return card
 
 
 def render_img(head_img, template):
@@ -52,7 +53,3 @@ def render_img(head_img, template):
     )
     template.paste(head_img, box)
     return template
-
-
-if __name__ == '__main__':
-    create_card('test', 'christmas.jpg')
