@@ -17,8 +17,9 @@ def get_logger():
     ch.setFormatter(formatter)
     ch.setLevel(logging.DEBUG)
 
-    logger.addHandler(fh)
+    # logger.addHandler(fh)
     logger.addHandler(ch)
+    logger.setLevel(logging.DEBUG)
     return logger
 
 
