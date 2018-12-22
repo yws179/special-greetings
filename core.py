@@ -10,6 +10,7 @@ def is_self():
 
 @itchat.msg_register([itchat.content.TEXT], True, False, False)
 def receive_msg(msg):
+    print(msg)
     user_id = msg['FromUserName']
     user_name = msg['User']['NickName']
     head_img = itchat.get_head_img(user_id)
