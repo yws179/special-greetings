@@ -1,4 +1,6 @@
 # Special Greetings
+![](https://img.shields.io/badge/version-1.0-519dd9.svg)
+![](https://img.shields.io/badge/license-MIT-519dd9.svg)
 > 将会持续增加新功能..未完待续  
 author: yws
 
