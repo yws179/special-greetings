@@ -30,10 +30,10 @@ def receive_msg(msg):
     logger.debug(msg)
 
 
-def setup():
-    itchat.auto_login(hotReload=True, enableCmdQR=False)
+def setup(enable_cmd_qr):
+    itchat.auto_login(hotReload=True, enableCmdQR=enable_cmd_qr)
     itchat.run()
 
 
 if __name__ == '__main__':
-    setup()
+    setup(2)
