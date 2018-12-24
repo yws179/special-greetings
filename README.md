@@ -15,9 +15,6 @@ author: yws
 
 更多功能即将龟速加入...
 
-## 效果图
-![](./screenshots/effect.png)
-
 ## 使用说明
 ```bash
 # 图片二维码登录
@@ -29,6 +26,9 @@ python ./setup.py -q 1
 # 如部分的linux系统，块字符的宽度为一个字符（正常应为两字符），故赋值为2
 python ./setup.py --cmd_qr 2
 ```
+
+## 效果图
+![](./screenshots/effect.png)
 
 ## 申明
 素材文件来源于网络，未授权商用
